@@ -6,6 +6,7 @@ services:
     networks:
       - frontend
     deploy:
+      mode: replicated
       replicas: 1
       update_config:
         parallelism: 2
@@ -22,6 +23,7 @@ services:
     networks:
       - backend
     deploy:
+      mode: replicated
       placement:
         constraints: [node.role == manager]
   vote:
@@ -47,6 +49,7 @@ services:
     depends_on:
       - db
     deploy:
+      mode: replicated
       replicas: 1
       update_config:
         parallelism: 2
