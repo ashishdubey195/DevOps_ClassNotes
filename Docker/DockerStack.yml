@@ -3,6 +3,8 @@ services:
 
   redis:
     image: redis:alpine
+    volumes:
+     - redis-data:/data 
     networks:
       - frontend
     deploy:
@@ -94,3 +96,4 @@ networks:
 
 volumes:
   db-data:
+  redis-data:
